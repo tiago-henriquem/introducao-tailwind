@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Document</title>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        colors: {
+          'primary': '#009c3b',
+          'secondary': '#ffdf00',
+          'tertiary': '#002776',
+          'white': '#fff',
+          'transparent': "transparent"
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="w-full h-full flex flex-col justify-center items-center bg-primary text-white">
+    <h1 class="text-lg mb-2">Brazilian click count</h1>
+    <div class="w-5/6 h-3/6 max-w-sm mb-4 max-w-md flex justify-center items-center bg-secondary rounded-3xl">
+      <div class=" w-9/12 h-3/6 flex justify-center items-center bg-tertiary rounded-3xl">
+        <p id="resultView">0</p>
+        <div class="w-px-50"></div>
+      </div>
+    </div>
+    <button id="btnAddict" class="w-24 mb-4 bg-secondary text-primary text-3xl rounded-xl">+</button>
+    <button id="btnSubtract" class="w-24 h-10 bg-secondary text-primary text-3xl rounded-xl">-</button>
+  </div>
+
+  <script>
+    const btnAdd = document.getElementById('btnAddict');
+    const btnSub = document.getElementById('btnSubtract');
+    const resultView = document.getElementById('resultView');
+    var result = 0;
+    btnAdd.addEventListener("click", function(e) {
+      e.preventDefault();
+      result++;
+      resultView.innerHTML = result;
+    })
+
+    btnSub.addEventListener("click", function(e) {
+      e.preventDefault();
+      result--;
+      resultView.innerHTML = result;
+    })
+  </script>
+</body>
+</html>
